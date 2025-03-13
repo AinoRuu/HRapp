@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HRapp.StartPage"
+             Title="Navigation"
+             >
+    <!--disables the back button-->
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False" IsVisible="False"/>
+    </Shell.BackButtonBehavior>
+
+    <ScrollView>
+    <VerticalStackLayout
+        BackgroundColor="White">
+        <Label x:Name="Welcome" Text="Welcome! What do you want to do next?" 
+               TextColor="Black" FontSize="30" HorizontalOptions="Center" Padding="20, 75, 20, 20"/>
+        
+        <!--This button lets the user onto a new personelpage to input new data as well as edit and delete saved data-->
+            <Button x:Name="New" Text="Add new and edit saved data" FontSize="20" TextColor="Black" Padding="10" HeightRequest="80" WidthRequest="300" Clicked="New_Clicked" 
+                BackgroundColor="Gray" ToolTipProperties.Text="Click to input new data and edit/delete saved data" />
+
+            <!--This button lets the admin to view the user logs-->
+            <Button x:Name="Log" Text="View the records" FontSize="20" TextColor="Black" Padding="10" HeightRequest="80" WidthRequest="300" Clicked="Log_Clicked" 
+                BackgroundColor="Gray" ToolTipProperties.Text="Click to view the logs" />
+
+
+            <!--This button lets the user log out and returns them to the login page-->
+        <Button x:Name="Logout" Text="Log out" FontSize="20" TextColor="Black" Padding="10" HeightRequest="80" WidthRequest="300" Clicked="Logout_Clicked" 
+                BackgroundColor="Gray" ToolTipProperties.Text="Click to log out and return to the login page"/>
+
+
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

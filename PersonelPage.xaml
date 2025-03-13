@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HRapp.PersonelPage"
+             Title="New personel">
+    <!--disables the back button-->
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False" IsVisible="False"/>
+    </Shell.BackButtonBehavior>
+
+    <ScrollView>
+    <VerticalStackLayout BackgroundColor="White">
+        
+        <!--Create the Input page, where the info about the personel and their employment can be saved, edited and deleted-->
+
+        <HorizontalStackLayout>
+            <Label Text="Enter personel information: " FontSize ="20" Padding="10,10,190,10" TextColor="Black"/>
+        <Button x:Name="Reset" Text="Reset the form" Clicked="Reset_Clicked" BackgroundColor="DimGray" WidthRequest="150" TextColor="White"/>
+
+        </HorizontalStackLayout>
+
+
+        <HorizontalStackLayout Padding="10">
+                <Border Stroke="DimGray" StrokeThickness="2" StrokeShape="RoundRectangle 5, 5, 5, 5">
+
+                    <Entry x:Name="FirstNameEntry" WidthRequest="200" FontSize ="20" HorizontalOptions="Start" Placeholder="Firstnames"
+               ToolTipProperties.Text="Firstnames" TextColor="Black"/>
+                </Border>
+
+                <Border Stroke="DimGray" StrokeThickness="2" StrokeShape="RoundRectangle 5, 5, 5, 5">
+                    <Entry x:Name="NickNameEntry" WidthRequest="200" FontSize ="20" HorizontalOptions="Start" Placeholder="Nickname"
+       ToolTipProperties.Text="Nickname" TextColor="Black"/>
+                </Border>
+
+                <Border Stroke="DimGray" StrokeThickness="2" StrokeShape="RoundRectangle 5, 5, 5, 5">
+                    <Entry x:Name="LastNameEntry" WidthRequest="200" FontSize ="20" HorizontalOptions="Start" Placeholder="Lastname"
+               ToolTipProperties.Text="Lastname" TextColor="Black"/>
+                </Border>
+
+                <Border Stroke="DimGray" StrokeThickness="2" StrokeShape="RoundRectangle 5, 5, 5, 5">
+                    <Entry x:Name="IDEntry" WidthRequest="200" FontSize ="20" HorizontalOptions="Start" Placeholder="Identity number"
+               ToolTipProperties.Text="Identity number" TextColor="Black"/>
+                </Border>
+            </HorizontalStackLayout>
+        <HorizontalStackLayout Padding="10">
+
+                <Border Stroke="DimGray" StrokeThickness="2" StrokeShape="RoundRectangle 5, 5, 5, 5">
+                    <Entry x:Name="AddressEntry" WidthRequest="200" FontSize ="20" HorizontalOptions="Start" Placeholder="Address"
+                   ToolTipProperties.Text="Address" TextColor="Black"/>
+                </Border>
+
+                <Border Stroke="DimGray" StrokeThickness="2" StrokeShape="RoundRectangle 5, 5, 5, 5">
+                    <Entry x:Name="PostalCodeEntry" WidthRequest="200" FontSize ="20" HorizontalOptions="Start" Placeholder="Postalcode"
+               ToolTipProperties.Text="Postalcode" TextColor="Black" TextChanged="PostalCodeEntry_TextChanged"/>
+                </Border>
+
+                <Border Stroke="DimGray" StrokeThickness="2" StrokeShape="RoundRectangle 5, 5, 5, 5">
+                    <Entry x:Name="CityEntry" WidthRequest="200" FontSize ="20" HorizontalOptions="Start" Placeholder="City"
+               ToolTipProperties.Text="City" TextColor="Black"/>
+                </Border>
+            </HorizontalStackLayout>
+
+
+
+
+            <Label Text="Enter employment details: " FontSize ="20" Padding="10, 10, 10, 10" TextColor="Black"/>
+
+            
+                <HorizontalStackLayout Padding="10">
+                <DatePicker x:Name="JobStart" HorizontalOptions="Start" TextColor="White" BackgroundColor="DimGray"/>
+                    <Label Text="Enter the date of the beginning of the employment " FontSize ="15" HorizontalOptions="Start" Padding="10, 20, 10, 10" TextColor="Black"/>
+                </HorizontalStackLayout>
+
+        
+        <HorizontalStackLayout Padding="10">
+                <DatePicker x:Name="JobEnd" HorizontalOptions="Start" TextColor="White" BackgroundColor="DimGray" />
+                <Label Text="Enter the date of the end of the employment" FontSize ="15" HorizontalOptions="Start" Padding="10, 20, 10, 10" TextColor="Black"/>
+                <CheckBox x:Name="Continuous" CheckedChanged="Continuous_CheckedChanged" BackgroundColor="DimGray" IsChecked="False" />
+                <Label Text="Employment is ongoing" FontSize ="15" HorizontalOptions="Start" Padding="10, 20, 10, 10" TextColor="Black"/>
+                <Entry x:Name="JobEndEntry" BackgroundColor="Transparent" IsEnabled="False" TextColor="Transparent" Text="Ended on:"/>
+
+            </HorizontalStackLayout>
+        <HorizontalStackLayout Padding="10, 10, 10, 10">
+                <Border Stroke="DimGray" StrokeThickness="2" StrokeShape="RoundRectangle 5, 5, 5, 5">
+                    <Entry x:Name="JobTitleEntry" WidthRequest="200" FontSize ="20" HorizontalOptions="Start" Placeholder="Jobtitle"
+       ToolTipProperties.Text="Jobtitle" TextColor="Black"/>
+                </Border>
+
+                <Border Stroke="DimGray" StrokeThickness="2" StrokeShape="RoundRectangle 5, 5, 5, 5">
+                    <Entry x:Name="UnitEntry" WidthRequest="200" FontSize ="20" HorizontalOptions="Start" Placeholder="Unit"
+       ToolTipProperties.Text="Unit" TextColor="Black"/>
+                </Border>
+            </HorizontalStackLayout>
+
+        <HorizontalStackLayout Padding="20, 20, 20, 20">
+                <Button x:Name="Save" Text="Save" Clicked="Save_Clicked" BackgroundColor="DimGray" WidthRequest="150" TextColor="White"/>
+                <Button x:Name="Return" Text="Return to menu" Clicked="Return_Clicked" BackgroundColor="DimGray" WidthRequest="150" TextColor="White"/>
+        </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+            <Button x:Name="NickA" Text="Nickname a-z" FontSize="12" Clicked="NickA_Clicked" BackgroundColor="DimGray" WidthRequest="110" TextColor="White"/>
+                <Button x:Name="NickZ" Text="Nickname z-a" FontSize="12"  Clicked="NickZ_Clicked" BackgroundColor="DimGray" WidthRequest="110" TextColor="White"/>
+                <Button x:Name="LastA" Text="Lastname a-z" FontSize="12"  Clicked="LastA_Clicked" BackgroundColor="DimGray" WidthRequest="110" TextColor="White"/>
+                <Button x:Name="LastB" Text="Lastname z-a" FontSize="12"  Clicked="LastB_Clicked" BackgroundColor="DimGray" WidthRequest="110" TextColor="White"/>
+                <Button x:Name="TitleA" Text="Jobtitle a-z" FontSize="12"  Clicked="TitleA_Clicked" BackgroundColor="DimGray" WidthRequest="110" TextColor="White"/>
+                <Button x:Name="TitZ" Text="Jobtitle z-a" FontSize="12"  Clicked="TitZ_Clicked" BackgroundColor="DimGray" WidthRequest="110" TextColor="White"/>
+            </HorizontalStackLayout>
+
+
+            <Border Stroke="DimGray" StrokeThickness="3" StrokeShape="RoundRectangle 20, 20, 20, 20">
+    
+        <!--Listview to show all of the saved data-->
+                <ListView x:Name="PersonInfo" 
+        ItemsSource="{Binding Employee}"   
+        MinimumHeightRequest="200"
+        MinimumWidthRequest="1000"
+        Margin="15" 
+        BackgroundColor="White"      
+        ItemSelected="PersonInfo_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <HorizontalStackLayout>
+                                    <Label Text="{Binding Firstnames}" FontSize="15" TextColor="Black" Padding="5, 5, 30, 5" />
+                                    <Label Text="{Binding Lastname}" FontSize="15" TextColor="Black" Padding="5, 5, 30, 5" />
+                                    <Label Text="{Binding Nickname}" FontSize="15" TextColor="Black" Padding="5, 5, 30, 5" />
+                                    <Label Text="{Binding ID}" FontSize="15" TextColor="Black" Padding="5, 5, 30, 5" />
+                                    <Label Text="{Binding Address}" FontSize="15" TextColor="Black" Padding="5, 5, 30, 5"/>
+                                    <Label Text="{Binding Postalcode}" FontSize="15" TextColor="Black" Padding="5, 5, 30, 5"/>
+                                    <Label Text="{Binding City}" FontSize="15" TextColor="Black" Padding="5, 5, 30, 5"/>
+                                    <Label Text="{Binding Beginning}" FontSize="15" TextColor="Black" Padding="5, 5, 30, 5"/>
+                                    <Label Text="{Binding JobEnd}" FontSize="15" TextColor="Black" Padding="5, 5, 30, 5"/>
+                                    <Label Text="{Binding End}" FontSize="15" TextColor="Black" Padding="5, 5, 30, 5"/>
+                                    <Label Text="{Binding JobTitle}" FontSize="15" TextColor="Black" Padding="5, 5, 30, 5"/>
+                                    <Label Text="{Binding Unit}" FontSize="15" TextColor="Black" Padding="5, 5, 30, 5"/>
+                                </HorizontalStackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Border>
+
+    </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

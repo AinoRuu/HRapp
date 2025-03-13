@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HRapp.MainPage"
+             BackgroundImageSource="padlock.jpeg">
+
+    <!--disables the back button-->
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False" IsVisible="False"
+    />
+    </Shell.BackButtonBehavior>
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <!--Allows the user to quit out of the program-->
+            <Border Stroke="DimGray" StrokeThickness="3" WidthRequest="50" HeightRequest="50" HorizontalOptions="End" VerticalOptions="Start" StrokeShape="RoundRectangle 30, 30, 30, 30">
+                <ImageButton x:Name="QuitButton" Source="quitbtn.png"  HeightRequest="20" WidthRequest="20" Clicked="QuitButton_Clicked" VerticalOptions="Start" HorizontalOptions="End" />
+            </Border>
+            
+            <!--Creates the entries for username and password. Lets the user know what they need to input-->
+            <Label Text="Input username and password" TextColor="Black" FontSize="20" HorizontalOptions="Center"/>
+            <Border Stroke="DimGray" StrokeThickness="2" WidthRequest="300">
+                <Entry x:Name="Username" Placeholder="Username" TextColor="Black" WidthRequest="300" ToolTipProperties.Text="Username"/>
+            </Border>
+            
+                <!--user's password can be entered into this entry-->
+                <Border Stroke="DimGray" StrokeThickness="2" WidthRequest="300">
+                <Entry x:Name="Password" Placeholder="Password" IsPassword="{Binding Source={x:Reference hidePassword}, Path=IsChecked }" TextColor="Black" WidthRequest="300" ToolTipProperties.Text="Password" />
+            </Border>
+            
+                <!--by using the checkbox, the user can choose to show or hide the written password. Password is hidden by default.-->
+            <HorizontalStackLayout
+                VerticalOptions="Center" HorizontalOptions="Center"  >
+                <CheckBox   x:Name="hidePassword" IsChecked="True" Color="DimGray"></CheckBox>
+                <Label Text="Show password" TextColor="Black" FontSize="15" Padding="0,10,0,10"/>
+            </HorizontalStackLayout>
+            
+            <!-- logs the user in-->
+            <Button x:Name="LoginButton" Text="Login" FontSize="20" TextColor="Black" WidthRequest="200" Clicked="LoginButton_Clicked" BackgroundColor="Gray"/>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
